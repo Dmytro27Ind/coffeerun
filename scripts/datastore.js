@@ -2,7 +2,7 @@
 
 class DataStore{
     constructor(){
-        console.log("running DataStore()")
+        // console.log("creating DataStore object")
         this.data = {}
     }
 
