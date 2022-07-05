@@ -1,8 +1,29 @@
 @import url(https://fonts.googleapis.com/css?family=Montserrat);
 
-html, body{
+html, body, .flex__container{
     height: 100%;
 }
 body{
+    overflow: hidden;
     font-family: 'Montserrat';
+}
+.flex__container{
+    display: flex;
+    flex-direction: column;
+}
+.flex__header{
+    flex: 0 0 auto;
+}
+.flex__content{
+    flex: 1 1 auto;
+    position: relative;
+    overflow-y: scroll;
+}
+
+.flex__header > h1{
+    font-size: 55px;
+    font-weight: 100;
+    text-transform: uppercase;
+    text-align: center;
+    padding: 0 20px;
 }
