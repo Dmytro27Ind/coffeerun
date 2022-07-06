@@ -1,25 +1,26 @@
 
 
 class DataStore{
+    #data = {}
+
     constructor(){
         // console.log("creating DataStore object")
-        this.data = {}
     }
 
     add(key, val){
-        this.data[key] = val
+        this.#data[key] = val
     }
 
     get(key){
-        return this.data[key]
+        return this.#data[key]
     }
 
     getAll(){
-        return this.data
+        return this.#data
     }
 
     remove(key){
-        delete this.data[key]
+        delete this.#data[key]
     }
 }
 
