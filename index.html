@@ -6,7 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Coffee Run</title>
 
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/8.0.1/normalize.min.css" integrity="sha512-NhSC1YmyruXifcj/KFRWoC561YpHpc5Jtzgvbuzx5VozKpWvQ+4nXhPdFgmx8xqexRcpAglTj9sIBWINXa8x5w==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.6/css/bootstrap.min.css" integrity="sha512-nNo+yCHEyn0smMxSswnf/OnX6/KwJuZTlNZBjauKhTK0c+zT+q5JOCx0UFhXQ6rJR9jg6Es8gPuD2uZcYDLqSw==" crossorigin="anonymous" referrerpolicy="no-referrer" />
     <link rel="stylesheet" href="./stylesheets/styles.css">
 
     <link rel="apple-touch-icon" sizes="180x180" href="/favicon/apple-touch-icon.png">
@@ -22,30 +22,70 @@
             <h1>Coffee Run</h1>
         </div>
         <div class="flex__content">
-            <p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Vel, reiciendis.</p>
-            <p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Vel, reiciendis.</p>
-            <p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Vel, reiciendis.</p>
-            <p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Vel, reiciendis.</p>
-            <p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Vel, reiciendis.</p>
-            <p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Vel, reiciendis.</p>
-            <p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Vel, reiciendis.</p>
-            <p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Vel, reiciendis.</p>
-            <p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Vel, reiciendis.</p>
-            <p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Vel, reiciendis.</p>
-            <p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Vel, reiciendis.</p>
-            <p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Vel, reiciendis.</p>
-            <p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Vel, reiciendis.</p>
-            <p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Vel, reiciendis.</p>
-            <p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Vel, reiciendis.</p>
-            <p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Vel, reiciendis.</p>
-            <p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Vel, reiciendis.</p>
-            <p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Vel, reiciendis.</p>
-            <p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Vel, reiciendis.</p>
-            <p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Vel, reiciendis.</p>
-            <p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Vel, reiciendis.</p>
+            <div class="container">
+                <section>
+                    <div class="panel panel-default">
+                        <div class="panel-body">
+                            <form data-coffee-order="form">
+                                <div class="form-group">
+                                    <label for="emailInput">Email</label>
+                                    <input class="form-control" id="emailInput" name="email"
+                                        placeholder="email@gmail.com" value="" autofocus>
+                                </div>
+                                <div class="form-group">
+                                    <label for="coffeeOrder">Coffe Order</label>
+                                    <select id="coffeeOrder" class="form-control" name="coffee">
+                                        <option value="black-coffee">Black Coffee</option>
+                                        <option value="espresso" selected>Espresso</option>
+                                        <option value="latte">Latte</option>
+                                        <option value="cappuccino">Cappuccino</option>
+                                        <option value="americano">Americano</option>
+                                        <option value="iced-coffee">Iced Coffee</option>
+                                    </select>
+                                </div>
+                                <div class="radio">
+                                    <label>
+                                        <input type="radio" name="size" value="small">
+                                        Small
+                                    </label>
+                                </div>
+                                <div class="radio">
+                                    <label>
+                                        <input type="radio" name="size" value="medium" checked>
+                                        Medium
+                                    </label>
+                                </div>
+                                <div class="radio">
+                                    <label>
+                                        <input type="radio" name="size" value="big">
+                                        Big
+                                    </label>
+                                </div>
+                                <div class="form-group">
+                                    <label for="flavorShot">Flavor Enhancer</label>
+                                    <select id="flavorShot" class="form-control" name="flavor">
+                                        <option value="">None</option>
+                                        <option value="caramel">Caramel</option>
+                                        <option value="almond">Almond</option>
+                                    </select>
+                                </div>
+                                <div class="form-group">
+                                    <label for="strengthLevel">Caffeine Rating</label>
+                                    <input name="strength" id="strengthLevel" type="range" value="30">
+                                </div>
+                                <button type="submit" class="btn btn-default">Submit</button>
+                                <button type="reset" class="btn btn-default">Reset</button>
+                            </form>
+                        </div>
+                    </div>
+                </section>
+
+            </div>
         </div>
     </div>
 </body>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.4/jquery.min.js" integrity="sha512-AFwxAkWdvxRd9qhYYp1qbeRZj6/iTNmJ2GFwcxsMOzwwTaRwz2a/2TX225Ebcj3whXte1WGQb38cXE5j7ZQw3g==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+    <script type="module" src="./scripts/formhandler.js" charset="utf-8"></script>
     <script type="module" src="scripts/datastore.js" charset="utf-8"></script>
     <script type="module" src="scripts/order.js" charset="utf-8"></script>
     <script type="module" src="scripts/truck.js" charset="utf-8"></script>
