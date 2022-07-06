@@ -20,6 +20,7 @@ export default class FormHandler{
                 data[item.name] = item.value
             })
             fn(data)
+            console.log(data)
 
             this.reset()
             this.querySelector('[rel="js-coffee-rate"]').textContent = this.querySelector("#strengthLevel").getAttribute("value")
