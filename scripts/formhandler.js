@@ -12,27 +12,33 @@ export default class FormHandler{
 
     addSubmitHandler(fn){
         console.log('Setting submit handler for form')
+
+        // First example with anonymous function and .bind(this)
         this.$formElement.on('submit', function(event){
             event.preventDefault();
 
             let data = {}
-            $(this).serializeArray().forEach(function(item) {
+            $(this.$formElement[0]).serializeArray().forEach(function(item) {
                 data[item.name] = item.value
             })
             fn(data)
-            console.log(data)
 
-            this.reset()
-            this.querySelector('[rel="js-coffee-rate"]').textContent = this.querySelector("#strengthLevel").getAttribute("value")
-            this.elements[0].focus()
-        })
+            this.resetForm();
+            this.$formElement[0].elements[0].focus()
+        }.bind(this))
     }
 
     addResetHandler($resetButton){
         console.log('Setting reset handler for form')
-        $resetButton.on('click', function(event){
-            document.querySelector('[rel="js-coffee-rate"]').textContent = document.querySelector("#strengthLevel").getAttribute("value")
+        // Second example with lamda function
+        $resetButton.on('click', (event) => {
+            this.resetForm();
         })
+    }
+
+    resetForm(){
+        this.$formElement[0].reset()
+        this.$formElement[0].querySelector('[rel="js-coffee-rate"]').textContent = this.$formElement[0].querySelector("#strengthLevel").getAttribute("value")
     }
 
     addRateHandler($rateElement, $rangeElement){

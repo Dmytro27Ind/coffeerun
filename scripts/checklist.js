@@ -11,8 +11,26 @@ export default class CheckList{
     }
 
     addRow(order){
+        this.removeRow(order.email)
         let rowElement = new Row(order)
         this.$element.append(rowElement.$element)
+    }
+
+    removeRow(email){
+        this.$element
+            .find('[value="' + email + '"]')
+            .closest('[rel="js-order-checkbox"]')
+            .remove();
+    }
+
+    addClickHandler(fn){
+        // or function(event){...}.bind(this)
+        this.$element.on('click', 'input', (event) => {
+            // console.log(event)
+            var email = event.target.value;
+            this.removeRow(email)
+            fn(email)
+        })
     }
 }
 

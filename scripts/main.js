@@ -1,5 +1,4 @@
 import Truck from "./truck.js"
-import Order from "./order.js"
 import FormHandler from "./formhandler.js"
 import CheckList from "./checklist.js"
 
@@ -21,16 +20,5 @@ formHandler.addSubmitHandler(function(data){
 formHandler.addRateHandler($(rate_selector), $(range_selector));
 formHandler.addResetHandler($(reset_selector))
 
-
-
-// console.log("🚀 ~ file: main.js ~ line 5 ~ truck", myTruck)
-
-// let order1 = new Order("dima@gmail.com", "small coffee")
-// let order2 = new Order("artem@gmail.com", "big coffee")
-
-// myTruck.createOrder(order1)
-// myTruck.createOrder(order2)
-
-// myTruck.printOrders()
-// myTruck.deliverOrder(order1.email)
-// myTruck.printOrders()
+// or checkList.addClickHandler(myTruck.deliverOrder.bind(myTruck))
+checkList.addClickHandler((email) => {myTruck.deliverOrder(email)})
