@@ -1,5 +1,4 @@
 import { DataStore } from "./datastore.js"
-import Order from "./order.js"
 
 export default class Truck {
     #db = new DataStore()

@@ -26,7 +26,7 @@
                 <section>
                     <div class="panel panel-default">
                         <div class="panel-body">
-                            <form data-coffee-order="form">
+                            <form rel="js-coffee-order">
                                 <div class="form-group">
                                     <label for="emailInput">Email</label>
                                     <input class="form-control" id="emailInput" name="email"
@@ -70,11 +70,12 @@
                                     </select>
                                 </div>
                                 <div class="form-group">
-                                    <label for="strengthLevel">Caffeine Rating</label>
-                                    <input name="strength" id="strengthLevel" type="range" value="30">
+                                    <label class="caffeine-rating__label" for="strengthLevel">Caffeine Rating</label>
+                                    <p class="caffeine-rating__rate" rel="js-coffee-rate"></p>
+                                    <input name="strength" id="strengthLevel" type="range" value="30" rel="js-coffee-range">
                                 </div>
                                 <button type="submit" class="btn btn-default">Submit</button>
-                                <button type="reset" class="btn btn-default">Reset</button>
+                                <button type="reset" class="btn btn-default" rel="js-reset-button">Reset</button>
                             </form>
                         </div>
                     </div>

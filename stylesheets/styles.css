@@ -21,3 +21,11 @@ body{
     text-align: center;
     padding: 0 20px;
 }
+.caffeine-rating__label{
+    width: 20%;
+}
+.caffeine-rating__rate{
+    display: inline-block;
+    width: 75%;
+    text-align: right;
+}
