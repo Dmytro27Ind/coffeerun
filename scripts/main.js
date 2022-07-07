@@ -1,6 +1,7 @@
 import Truck from "./truck.js"
 import FormHandler from "./formhandler.js"
 import CheckList from "./checklist.js"
+import RemoteDataStore from "./remotedatastore.js"
 
 
 const form_selector = '[rel="js-coffee-order"]'
@@ -12,6 +13,15 @@ const checklist_selector = '[rel="js-orders-checklist"]'
 let myTruck = new Truck("01")
 let formHandler = new FormHandler(form_selector)
 let checkList = new CheckList(checklist_selector)
+let remoteDS = new RemoteDataStore("http://localhost:3000/api/orders")
+// remoteDS.add('email@student.tuke.sk', {
+//     email: "email@student.tuke.sk",
+//     coffee: "Espresso",
+//     size: "big",
+//     flavor: "None",
+//     strength: 90
+// })
+remoteDS.getAll()
 
 // formHandler.addSubmitHandler(function(data){
 //     myTruck.createOrder.call(myTruck, data)
@@ -20,6 +30,7 @@ let checkList = new CheckList(checklist_selector)
 formHandler.addSubmitHandler((data) => {
     myTruck.createOrder(data)
     checkList.addRow(data)
+    console.log(data)
 });
 formHandler.addRateHandler($(rate_selector), $(range_selector));
 formHandler.addResetHandler($(reset_selector))
