@@ -9,5 +9,8 @@ This is a site with a form for ordering coffee for student with the output of al
 
 
 ## Install
-1. You need to download the repository and open the site on a local server.
-2. ```console cd server ```
+1. You need to download the this repository.
+2. Move to the project directory and write `$ cd server`.
+3. Download all server dependencies by writing `$ npm install`.
+4. Write `$ node app.js` to starting the server with mongodb database.
+5. Open the site on a local server.
