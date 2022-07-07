@@ -13,9 +13,13 @@ let myTruck = new Truck("01")
 let formHandler = new FormHandler(form_selector)
 let checkList = new CheckList(checklist_selector)
 
-formHandler.addSubmitHandler(function(data){
-    myTruck.createOrder.call(myTruck, data)
-    checkList.addRow.call(checkList, data)
+// formHandler.addSubmitHandler(function(data){
+//     myTruck.createOrder.call(myTruck, data)
+//     checkList.addRow.call(checkList, data)
+// });
+formHandler.addSubmitHandler((data) => {
+    myTruck.createOrder(data)
+    checkList.addRow(data)
 });
 formHandler.addRateHandler($(rate_selector), $(range_selector));
 formHandler.addResetHandler($(reset_selector))
