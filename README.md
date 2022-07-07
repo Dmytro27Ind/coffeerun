@@ -9,4 +9,5 @@ This is a site with a form for ordering coffee for student with the output of al
 
 
 ## Install
-To install, you just need to download the repository and open the site on a local server.
+1. You need to download the repository and open the site on a local server.
+2. ```console cd server ```
