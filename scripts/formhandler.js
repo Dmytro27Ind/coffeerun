@@ -49,4 +49,15 @@ export default class FormHandler{
             $rateElement[0].textContent = $rangeElement[0].value;
         })
     }
+
+    addInputHandler(fn){
+        console.log('Setting input handler for form')
+        this.$formElement.on('input', '[name="email"]', (event) => {
+            var email = event.target.value;
+            if(fn(email))
+                event.target.setCustomValidity('');
+            else
+                event.target.setCustomValidity(email + ' is not a student email address');
+        })
+    }
 }

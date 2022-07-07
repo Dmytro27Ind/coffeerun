@@ -26,3 +26,4 @@ formHandler.addResetHandler($(reset_selector))
 
 // or checkList.addClickHandler(myTruck.deliverOrder.bind(myTruck))
 checkList.addClickHandler((email) => {myTruck.deliverOrder(email)})
+formHandler.addInputHandler(isCompanyEmail)
