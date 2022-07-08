@@ -8,6 +8,8 @@ This is a website with a form for ordering coffee for student with the output of
 - **NodeJS** with **mongodb**, **express** and **mongoose**
 - **HTML/CSS**
 
+## Website screenshot
+![My Remote Image](https://github.com/Dmytro27Ind/images/blob/main/student_coffee.PNG)
 
 ## Install
 1. You need to download this repository.
