@@ -2,6 +2,7 @@ import Truck from "./truck.js"
 import FormHandler from "./formhandler.js"
 import CheckList from "./checklist.js"
 import RemoteDataStore from "./remotedatastore.js"
+import { DataStore } from "./datastore.js"
 
 
 const server_url = 'http://localhost:3000/api/orders'
@@ -18,15 +19,19 @@ let checkList = new CheckList(checklist_selector)
 
 //* .getAll() return Deferred object (like Promise but from jQuery)
 remoteDS.getAll()
-.then((res) => {
-    console.log(res)
-    res.forEach((order) => {
-        checkList.addRow(order)
-    })
-}, (error) => {   //* check for failed
-    console.log(error.statusText)
-    alert('Server unreachable, try again later.')
-})
+.then(
+    (res) => {
+        console.log(res)
+        res.forEach((order) => {
+            checkList.addRow(order)
+        })
+    },
+    //* check for failed
+    (error) => {
+        console.log(error.statusText)
+        alert('Server unreachable, try again later.')
+    }
+)
 
 //* .getAll() with callback function
 // remoteDS.getAll((res) => {
@@ -37,22 +42,27 @@ remoteDS.getAll()
 // })
 
 
+//* ES5 style
 // formHandler.addSubmitHandler(function(data){
 //     myTruck.createOrder.call(myTruck, data)
 //     checkList.addRow.call(checkList, data)
 // });
+//* ES6 style
 formHandler.addSubmitHandler((data) => {
-    myTruck.createOrder(data).then(() => {
-        checkList.addRow(data)
-    },
-    //* check for failed
-    () => {
-        alert('Server unreachable, try again later.')
-    })
+    return myTruck.createOrder(data)
+    .then(
+        () => {
+            checkList.addRow(data)
+        },
+        //* check for failed
+        () => {
+            alert('Server unreachable, try again later.')
+        }
+    )
 });
 formHandler.addRateHandler($(rate_selector), $(range_selector));
 formHandler.addResetHandler($(reset_selector))
 
 //* or checkList.addClickHandler(myTruck.deliverOrder.bind(myTruck))
-checkList.addClickHandler((email) => {myTruck.deliverOrder(email)})
+checkList.addClickHandler((email) => (myTruck.deliverOrder(email)))
 formHandler.addInputHandler(isCompanyEmail)

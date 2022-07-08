@@ -7,20 +7,34 @@ class DataStore{
         // console.log("creating DataStore object")
     }
 
+    #promiseResolvedWith(value){
+        var promise = new Promise((resolve, reject) => {
+            resolve(value)
+        });
+        return promise
+    }
+
     add(key, val){
-        this.#data[key] = val
+        var promise = new Promise(function(resolve, reject){
+            this.#data[key] = val
+            resolve(null)
+        }.bind(this))
+        return promise
     }
 
     get(key){
-        return this.#data[key]
+        return this.#promiseResolvedWith(this.#data[key])
     }
 
     getAll(){
-        return this.#data
+        return this.#promiseResolvedWith(this.#data)
     }
 
     remove(key){
-        delete this.#data[key]
+        return new Promise(function(resolve, reject){
+            delete this.#data[key]
+            resolve(null)
+        }.bind(this))
     }
 }
 

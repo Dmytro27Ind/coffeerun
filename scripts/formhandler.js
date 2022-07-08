@@ -13,7 +13,7 @@ export default class FormHandler{
     addSubmitHandler(fn){
         console.log('Setting submit handler for form')
 
-        // First example with anonymous function and .bind(this)
+        //* First example with anonymous function and .bind(this)
         this.$formElement.on('submit', function(event){
             event.preventDefault();
 
@@ -21,10 +21,10 @@ export default class FormHandler{
             $(this.$formElement[0]).serializeArray().forEach(function(item) {
                 data[item.name] = item.value
             })
-            fn(data)
-
-            this.resetForm();
-            // this.$formElement[0].elements[0].focus()
+            fn(data).then(() => {
+                this.resetForm();
+                // this.$formElement[0].elements[0].focus()
+            })
         }.bind(this))
     }
 

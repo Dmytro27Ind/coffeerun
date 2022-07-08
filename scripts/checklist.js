@@ -28,8 +28,9 @@ export default class CheckList{
         this.$element.on('click', 'input', (event) => {
             // console.log(event)
             var email = event.target.value;
-            this.removeRow(email)
-            fn(email)
+            fn(email).then(function(){
+                this.removeRow(email)
+            }.bind(this))
         })
     }
 }
