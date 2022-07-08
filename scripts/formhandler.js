@@ -24,7 +24,7 @@ export default class FormHandler{
             fn(data)
 
             this.resetForm();
-            this.$formElement[0].elements[0].focus()
+            // this.$formElement[0].elements[0].focus()
         }.bind(this))
     }
 

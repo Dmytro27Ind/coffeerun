@@ -1,11 +1,11 @@
-import { DataStore } from "./datastore.js"
 
 export default class Truck {
-    #db = new DataStore()
+    #db = undefined
     #truckId = "id"
 
-    constructor(truckId) {
+    constructor(truckId, db) {
         this.#truckId = truckId
+        this.#db = db
     }
 
     get truckId() {
@@ -14,20 +14,20 @@ export default class Truck {
 
     createOrder(order) {
         console.log('Adding order "' + order.coffee + '" for customer: ' + order.email)
-        this.#db.add(order.email, order.coffee)
+        return this.#db.add(order.email, order)
     }
 
     deliverOrder(customerId) {
         console.log('Delivering order for customer: ' + customerId)
-        this.#db.remove(customerId)
+        return this.#db.remove(customerId)
     }
 
-    printOrders() {
-        let customersId = Object.keys(this.#db.getAll())
+    // printOrders() {
+    //     let customersId = Object.keys(this.#db.getAll())
 
-        console.log('Truck #' + this.truckId + ' has pending orders: ')
-        customersId.forEach((id) => {
-            console.log(this.#db.get(id));
-        });
-    }
+    //     console.log('Truck #' + this.truckId + ' has pending orders: ')
+    //     customersId.forEach((id) => {
+    //         console.log(this.#db.get(id));
+    //     });
+    // }
 }
